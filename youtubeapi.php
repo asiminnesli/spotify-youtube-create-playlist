@@ -1,4 +1,5 @@
 <?php
+include("variables.php");
 $arrContextOptions=array(
     "ssl"=>array(
         "verify_peer"=>false,
@@ -13,7 +14,6 @@ if(!@$vidkeygetirici[1]){
 	die("invalid url");
 }
 $vidkey = $vidkeygetirici[1];
-$apikey = "AIzaSyAAPh_GqR4QvzSW_DblQ7tlOjFNZVUKJvU" ;
 $dur = file_get_contents("https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=$vidkey&key=$apikey", false, stream_context_create($arrContextOptions));
 $title=file_get_contents("https://www.googleapis.com/youtube/v3/videos?part=snippet&id=$vidkey&key=$apikey", false, stream_context_create($arrContextOptions));
 
